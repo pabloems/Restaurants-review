@@ -3,15 +3,16 @@ Rails.application.routes.draw do
   resources :restaurants do
      collection do
       #/restaurants/top
-      get "top"
+      get :top
      end
      member do
       #/restaurants/:id/chef
-      get "chef"
+      get :chef
      end
  
    # GET restaurants/:restaurant_id/reviews/new
    # POST restaurants/:restaurant_id/reviews
+   # Están anidados porque no necesitan vista por sí solos
    resources :reviews, only: %i[new create]
   end
   # DELETE restaurants/reviews
