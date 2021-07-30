@@ -9,5 +9,11 @@ Rails.application.routes.draw do
       #/restaurants/:id/chef
       get "chef"
      end
+ 
+   # GET restaurants/:restaurant_id/reviews/new
+   # POST restaurants/:restaurant_id/reviews
+   resources :reviews, only: %i[new create]
   end
+  # DELETE restaurants/reviews
+  resources :reviews, only: %i[destroy show edit]
 end
